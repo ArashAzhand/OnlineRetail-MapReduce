@@ -4,6 +4,7 @@ This project performs large-scale data analysis on the [Online Retail Dataset](h
 
 - Total number of transactions per country
 - Minimum, maximum, and average **Quantity** of items bought per country
+- Then we made the dataset 10x bigger and evaluate the performance on it
 
 <br>
 
