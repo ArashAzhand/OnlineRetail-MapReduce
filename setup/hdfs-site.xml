@@ -17,15 +17,26 @@
 <!-- Put site-specific property overrides in this file. -->
 
 <configuration>
-  <!-- Tell Hadoop where the “default filesystem” (NameNode) is: -->
+<property>
+  <name>dfs.namenode.rpc-address</name>
+  <value>iut1:9000</value>
+</property>
+
+  <!-- NameNode’s metadata directory (on master): -->
   <property>
-    <name>fs.defaultFS</name>
-    <value>hdfs://iut1:9000</value>
+    <name>dfs.namenode.name.dir</name>
+    <value>file:///usr/local/hadoop/hdfs/namenode</value>
   </property>
 
-  <!-- Optional: set Hadoop’s temporary directory (local scratch) -->
+  <!-- DataNode storage directory (on every node, including master): -->
   <property>
-    <name>hadoop.tmp.dir</name>
-    <value>/usr/local/hadoop/tmp</value>
+    <name>dfs.datanode.data.dir</name>
+    <value>file:///usr/local/hadoop/hdfs/datanode</value>
+  </property>
+
+  <!-- How many replicas each block should have -->
+  <property>
+    <name>dfs.replication</name>
+    <value>2</value>
   </property>
 </configuration>

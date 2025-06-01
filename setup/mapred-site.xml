@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 <!--
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,15 +17,24 @@
 <!-- Put site-specific property overrides in this file. -->
 
 <configuration>
-  <!-- Tell Hadoop where the “default filesystem” (NameNode) is: -->
   <property>
-    <name>fs.defaultFS</name>
-    <value>hdfs://iut1:9000</value>
-  </property>
+  <name>mapreduce.framework.name</name>
+  <value>yarn</value>
+</property>
 
-  <!-- Optional: set Hadoop’s temporary directory (local scratch) -->
-  <property>
-    <name>hadoop.tmp.dir</name>
-    <value>/usr/local/hadoop/tmp</value>
-  </property>
+<property>
+  <name>yarn.app.mapreduce.am.env</name>
+  <value>HADOOP_MAPRED_HOME=/usr/local/hadoop</value>
+</property>
+
+<property>
+  <name>mapreduce.map.env</name>
+  <value>HADOOP_MAPRED_HOME=/usr/local/hadoop</value>
+</property>
+
+<property>
+  <name>mapreduce.reduce.env</name>
+  <value>HADOOP_MAPRED_HOME=/usr/local/hadoop</value>
+</property>
+
 </configuration>
