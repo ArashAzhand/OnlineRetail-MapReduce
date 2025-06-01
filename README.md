@@ -44,7 +44,7 @@ See `setup/` folder for configuration files and commands.
 
 ## 🛠 MapReduce Jobs
 
-### 1️⃣ Count Transactions per Country
+### 1 Count Transactions per Country
 
 - `mapper.py`: emits `(Country, 1)`
 - `reducer.py`: sums counts per country
@@ -56,6 +56,19 @@ hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-*.jar \
     -output /output_country_count \
     -mapper mapper.py \
     -reducer reducer.py
+```
 
+### 2 Count Transactions per Country
 
+- `quantity_mapper.py`: emits `(Country, quantity)`
+- `quantity_reducer.py`: performs min, max, avg
+
+```bash
+hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-*.jar \
+  -files quantity_mapper.py,quantity_reducer.py \
+  -input /input_clean/Online_Retail_Clean.csv \
+  -output /output_quantity_stats \
+  -mapper quantity_mapper.py \
+  -reducer quantity_reducer.py
+```
 
